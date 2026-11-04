@@ -5,6 +5,27 @@ workflows:
     max_build_duration: 30
     environment:
       flutter: stable
+      vars:
+        MAIL_TO: "dhanushkumar@revolite.io,ranjanath@revolite.io"
+        MAIL_SUBJECT: "Build from Flutter Team"
+        MAIL_BODY: |
+          Dear Testing Team,
+
+          Here is the new build of the Tasks (To-Do) application. Please install the attached APK and test the following:
+
+          1. Add task: tap "New task", enter a title, choose a priority and save. Try saving an empty title (an error should show).
+          2. Edit task: tap a task, change the title or priority and save.
+          3. Complete task: tick the checkbox. The title should be struck through and the progress bar should update.
+          4. Delete task: swipe a task to the left, then tap Undo to restore it.
+          5. Filters: check the All, Active and Done chips and their counts.
+          6. Clear completed: use the clean-up icon to remove finished tasks.
+          7. Persistence: close and reopen the app. Your tasks should still be there.
+          8. UI: check portrait/landscape and different screen sizes for any layout problems.
+
+          Please report any bugs or UI issues with screenshots and steps to reproduce.
+
+          Thanks and regards,
+          Flutter Team
     triggering:
       events:
         - push
