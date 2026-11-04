@@ -1,0 +1,24 @@
+workflows:
+  flutter-android:
+    name: Flutter Android
+    instance_type: mac_mini_m2
+    max_build_duration: 30
+    environment:
+      flutter: stable
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: main
+          include: true
+    scripts:
+      - name: Get dependencies
+        script: flutter pub get
+      - name: Analyze
+        script: flutter analyze
+      - name: Run tests
+        script: flutter test
+      - name: Build debug APK
+        script: flutter build apk --debug
+    artifacts:
+      - build/**/outputs/**/*.apk
