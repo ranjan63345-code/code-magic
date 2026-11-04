@@ -26,6 +26,7 @@ workflows:
       email:
         recipients:
           - dhanushkumar@revolite.io
+          - ranjanath@revolite.io
         notify:
           success: true
           failure: true
