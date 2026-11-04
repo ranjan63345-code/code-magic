@@ -18,8 +18,10 @@ workflows:
         script: flutter analyze
       - name: Run tests
         script: flutter test
-      - name: Build debug APK
-        script: flutter build apk --debug
+      - name: Build release APK
+        script: flutter build apk --release --split-per-abi
+      - name: Email build to testing team
+        script: python3 scripts/send_build_email.py
     artifacts:
       - build/**/outputs/**/*.apk
     publishing:
@@ -28,5 +30,5 @@ workflows:
           - dhanushkumar@revolite.io
           - ranjanath@revolite.io
         notify:
-          success: true
+          success: false
           failure: true
