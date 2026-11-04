@@ -22,3 +22,10 @@ workflows:
         script: flutter build apk --debug
     artifacts:
       - build/**/outputs/**/*.apk
+    publishing:
+      email:
+        recipients:
+          - dhanushkumar@revolite.io
+        notify:
+          success: true
+          failure: true
