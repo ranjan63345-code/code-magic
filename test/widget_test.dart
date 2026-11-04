@@ -29,6 +29,9 @@ void main() {
 
   testWidgets('empty state then add a task via the sheet', (tester) async {
     await tester.pumpWidget(TodoApp(store: TodoStore()));
+    expect(find.text('Ranjan'), findsOneWidget);
+    await tester.pumpAndSettle(const Duration(seconds: 4));
+    expect(find.text('Ranjan'), findsNothing);
     expect(find.text('No tasks yet'), findsOneWidget);
 
     await tester.tap(find.text('New task'));
